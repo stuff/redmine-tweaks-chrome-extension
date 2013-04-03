@@ -3,6 +3,7 @@ Some tweaks for redmine
 
 
 *Issues List Tweaks*
+* Relative time in issues list
 * Display avatars in assignee column
 * Lighten Review tickets you don't have to care of
 * Add direct link edit
