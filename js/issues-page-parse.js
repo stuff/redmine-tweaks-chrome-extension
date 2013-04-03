@@ -1,5 +1,5 @@
 /*jshint browser:true */
-/*global RedmineTweak, chrome, document */
+/*global RedmineTweak, document */
 
 (function (RedmineTweak) {
     var _changesetsElem,
@@ -177,7 +177,7 @@
 
     }
 
-    chrome.storage.local.get(null, function (prefObject) {
+    R.loadPreferences(function (prefObject) {
         start(prefObject);
     });
 

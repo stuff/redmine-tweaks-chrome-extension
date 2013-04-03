@@ -1,5 +1,5 @@
 /*jshint browser:true */
-/*global RedmineTweak, chrome, document */
+/*global RedmineTweak, document */
 
 (function (RedmineTweak) {
     var R = RedmineTweak;
@@ -24,7 +24,7 @@
         }
      }
 
-    chrome.storage.local.get(null, function (prefObject) {
+    R.loadPreferences(function(prefObject){
         start(prefObject);
     });
 

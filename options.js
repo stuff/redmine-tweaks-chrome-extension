@@ -1,52 +1,7 @@
 (function (RedmineTweak) {
 
     var prefixPref = RedmineTweak.prefixPref,
-        preferences = [
-            {
-                name: 'relativeDate',
-                default: true
-            },
-            {
-                name: 'displayAvatars',
-                default: true
-            },
-            {
-                name: 'dontCareTicket',
-                default: true
-            },
-            {
-                name: 'directEditLink',
-                default: true
-            },
-            {
-                name: 'colorizeRevisions',
-                default: true
-            },
-            {
-                name: 'reviewToChange',
-                default: true
-            },
-            {
-                name: 'autoQAonHold',
-                default: true
-            },
-            {
-                name: 'autoDisplayUpdateForm',
-                default: true
-            },
-            {
-                name: 'hideFirstEntries',
-                default: true
-            },
-            {
-                name: 'changesetsAbstract',
-                default: true
-            },
-            {
-                name: 'fileListAbstract',
-                default: true
-            }
-        ];
+        preferences = RedmineTweak.preferences;
 
     function createPreferences () {
         var container = document.querySelector('.options');

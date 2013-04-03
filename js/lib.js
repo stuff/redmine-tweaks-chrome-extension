@@ -1,15 +1,93 @@
 /*jshint browser:true */
-/*global document */
+/*global document, chrome */
 
 var RedmineTweak = (function () {
     var tweaks = {
 
         prefixPref: 'pref_',
 
+        preferences: [
+            {
+                name: 'relativeDate',
+                default: true
+            },
+            {
+                name: 'displayAvatars',
+                default: true
+            },
+            {
+                name: 'dontCareTicket',
+                default: true
+            },
+            {
+                name: 'directEditLink',
+                default: true
+            },
+            {
+                name: 'colorizeRevisions',
+                default: true
+            },
+            {
+                name: 'reviewToChange',
+                default: true
+            },
+            {
+                name: 'autoQAonHold',
+                default: true
+            },
+            {
+                name: 'autoDisplayUpdateForm',
+                default: true
+            },
+            {
+                name: 'hideFirstEntries',
+                default: true
+            },
+            {
+                name: 'changesetsAbstract',
+                default: true
+            },
+            {
+                name: 'fileListAbstract',
+                default: true
+            }
+        ],
+
         colors: {
             trunk: "#00dd00",
             qa: "#E8811A",
             prod: "#DB0F0F"
+        },
+
+        // this will load preferences from storage
+        // if a pref is undefined in storage, get the default value, and save it
+        // then call the callback with all the preferences
+        loadPreferences: function (callback) {
+            var getPrefIndexByName = function (name) {
+                    var pref = RedmineTweak.preferences.filter(function (item) {
+                            return item.name === name;
+                        });
+
+                    return (pref.length > 0) ? pref[0] : null;
+                };
+
+            chrome.storage.local.get(null, function (prefObject) {
+                RedmineTweak.preferences.forEach(function (pref) {
+                    var name = RedmineTweak.prefixPref + pref.name,
+                        obj = {};
+
+                    // if the preference does not exist, let's get the default
+                    if (prefObject[name] === undefined) {
+                        // internally used object
+                        prefObject[name] = getPrefIndexByName(pref.name).default;
+
+                        // chrome storage
+                        obj[name] = prefObject[name];
+                        chrome.storage.local.set(obj);
+                    }
+                });
+                callback(prefObject);
+            });
         },
 
         lightenDarkenColor: function (hex, lum) {
