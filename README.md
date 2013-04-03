@@ -12,7 +12,7 @@ Some tweaks for redmine
 * Auto display Update form
 * Hilight "review to" status change
 * Auto change to "qa on hold when writing "review ok" in the comment field
-* Only show the last 6 items on the list
+* Only show the last 6 items on the list, hide the others in a foldable panel
 
 *Revision Page Tweaks*
 * Abstract of filename impacted by changes
