@@ -11,7 +11,7 @@ Some tweaks for redmine
 *Issue Page Tweaks*
 * Colorize revision Branches (trunk is green, qa is orange, prod is red)
 * Auto display Update form
-* Hilight "review to" status change
+* Highlight "review to" status change
 * Auto change to "qa on hold when writing "review ok" in the comment field
 * Only show the last 6 items on the list, hide the others in a foldable panel
 
