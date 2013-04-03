@@ -1,0 +1,50 @@
+{
+  "name": "RedmineTweak",
+
+  "version" : "0.3",
+  "manifest_version": 2,
+  "description": "Redmine tweak a bit",
+
+  "permissions": [
+    "storage"
+  ],
+
+  "options_page": "options.html",
+
+  "content_scripts" : [
+    {
+      "matches" : [
+        "*://*/issues/*"
+      ],
+      "css": ["css/common.css"],
+      "js" : ["js/lib.js", "js/issues-page-parse.js"],
+      "run_at" : "document_idle",
+      "all_frames" : false
+    },
+
+    {
+      "matches" : [
+        "*://*/projects/*/issues*"
+      ],
+      "css": ["css/common.css"],
+      "js" : ["js/lib.js", "js/issueslist-page-parse.js"],
+      "run_at" : "document_idle",
+      "all_frames" : false
+    },
+
+    {
+      "matches" : [
+        "*://*/projects/*/repository/revisions/*/diff"
+      ],
+      "css": ["css/common.css"],
+      "js" : ["js/lib.js", "js/rev-page-parse.js"],
+      "run_at" : "document_idle",
+      "all_frames" : false
+    }
+
+  ],
+  "icons" : {
+    "48" : "ico.png",
+    "128" : "ico.png"
+  }
+}

@@ -1,0 +1,8 @@
+#hideShowLink {
+    cursor: pointer;
+    text-decoration:none;
+}
+
+#hideShowLink:hover {
+    color:black;
+}
